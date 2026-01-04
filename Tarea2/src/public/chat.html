@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - GameHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">GH</div>
+                <span>GameHub Chat</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="/products" class="nav-link">
+                    <i class="fas fa-gamepad"></i> Videojuegos
+                </a>
+                <div class="user-info" id="userInfo">
+                    <span class="user-badge" id="userBadge">
+                        <i class="fas fa-user"></i>
+                        <span id="usernameText">Invitado</span>
+                    </span>
+                    <button class="btn btn-danger" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Salir
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" style="max-width: 1400px;">
+        <div class="section-title">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="btn btn-secondary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </button>
+                <div>
+                    <h2>Chat en Tiempo Real</h2>
+                    <p style="color: var(--gray-light); margin-top: 0.5rem; font-size: 0.9rem;">
+                        Conecta con la comunidad gamer - ¡El chat funciona!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-error" id="chatError"></div>
+        <div class="alert alert-success" id="chatSuccess"></div>
+
+        <div class="chat-container">
+            <div class="chat-sidebar">
+                <h3><i class="fas fa-hashtag"></i> Salas de Chat</h3>
+                <div class="form-group">
+                    <input type="text" id="roomInput" class="form-input" placeholder="Nombre de sala" value="General">
+                    <input type="text" id="usernameInput" class="form-input" placeholder="Tu nombre" style="margin-top: 0.5rem;">
+                    <button class="btn btn-primary" onclick="joinRoom()" style="width: 100%; margin-top: 0.5rem;">
+                        <i class="fas fa-door-open"></i> Unirse a Sala
+                    </button>
+                </div>
+                <div id="currentRoom" style="margin-top: 1rem; padding: 1rem; background: var(--card-bg); border-radius: 10px; border: 1px solid var(--card-border);">
+                    <i class="fas fa-times-circle"></i> Sin sala activa
+                </div>
+                
+                <div class="users-list" id="usersList">
+                    <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-users"></i> Usuarios en sala:
+                    </h4>
+                    <div id="usersContainer">
+                        <div style="text-align: center; color: var(--gray); padding: 1rem;">
+                            <i class="fas fa-user-friends"></i>
+                            <p>Únete a una sala para ver usuarios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-main">
+                <div class="chat-messages" id="chatMessages">
+                    <div style="text-align: center; padding: 3rem; color: var(--gray);">
+                        <i class="fas fa-comments" style="font-size: 3rem;"></i>
+                        <h3>Bienvenido al Chat</h3>
+                        <p>Ingresa tu nombre y únete a una sala para chatear</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <form id="chatForm" style="display: none;">
+                        <div class="form-group">
+                            <input type="text" id="messageInput" class="form-input" placeholder="Escribe un mensaje..." autocomplete="off">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                    <div id="typingIndicator" class="typing-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
