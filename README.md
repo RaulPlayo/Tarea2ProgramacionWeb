@@ -12,6 +12,9 @@
 - **Finalizar compra**, generando un **pedido persistente en base de datos**
 - El carrito se vacía automáticamente tras la compra
 - Gestión de estados del pedido (`En curso` / `Completado`)
+- ![Pedidos!(Tarea2ProgramacionWeb/CapturasPantalla/pedidos.png)
+  
+ 
 
 ---
 
