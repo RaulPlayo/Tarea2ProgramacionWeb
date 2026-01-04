@@ -6,13 +6,14 @@
 
 # ¡Novedades en CentroGame!
 
+![Carrito de la compra!](/CapturasPantalla/compra.png)
+
 ##  Carrito de compra y pedidos (E-commerce)
 - Los usuarios pueden **añadir juegos al carrito**
 - Visualizar productos, cantidades y **precio total**
 - **Finalizar compra**, generando un **pedido persistente en base de datos**
 - El carrito se vacía automáticamente tras la compra
-- Gestión de estados del pedido (`En curso` / `Completado`)
-- ![Pedidos!(Tarea2ProgramacionWeb/CapturasPantalla/pedidos.png)
+- Gestión de estados del pedido (`En curso` / `Comprado`)
   
  
 
@@ -23,8 +24,9 @@ El administrador puede:
 - Ver **todos los pedidos** de la plataforma
 - Filtrar pedidos por estado:
   - `En curso` 
-  - `Completado` 
+  - `Comprado`
 - Ver el **detalle de cada pedido** (usuario, productos, cantidades y total)
+![Pedidos!](/CapturasPantalla/pedidos.png)
 
 ---
 
@@ -32,6 +34,7 @@ El administrador puede:
 - Listar usuarios registrados
 - Eliminar usuarios
 - Cambiar roles entre **user ↔ admin**
+![Funciones de administrador!](/CapturasPantalla/panelAdmin.png)
 
 ---
 
@@ -59,6 +62,10 @@ El proyecto ha sido actualizado para integrar **GraphQL** junto al API REST exis
   - Flujo completo de compra
 - Integración de **GraphQL** mediante schemas y resolvers.
 - Frontend consumiendo REST y GraphQL mediante `fetch`.
+
+# Añadiendo la funcion de admin al usuario "Pablo"
+![Solo hay 1 administrador!](/CapturasPantalla/solo1admin.png)
+![Todos administradores!](/CapturasPantalla/todosAdmin.png)
 
 ---
 
