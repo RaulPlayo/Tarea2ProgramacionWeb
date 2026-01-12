@@ -1,3 +1,4 @@
+// src/graphql/resolvers.js
 const User = require('../models/User');
 const Product = require('../models/Product');
 const Order = require('../models/Order');
@@ -73,7 +74,8 @@ const resolvers = {
       
       return order;
     },
-    createUser: async (_, { username, password, role }, { user }) => {
+    
+    createUser: async (_, { username, password, role }, { user, req }) => {
       if (!user || user.role !== 'admin') {
         throw new Error('Not authorized');
       }
@@ -151,14 +153,6 @@ const resolvers = {
       }
       
       return order;
-    }
-  },
-  Order: {
-    products: async (parent) => {
-      return parent.products.map(item => ({
-        ...item,
-        product: item.product
-      }));
     }
   }
 };

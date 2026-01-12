@@ -1,6 +1,7 @@
-const { gql } = require('apollo-server-express');
+// src/graphql/schema.js
+const { buildSchema } = require('graphql');
 
-const typeDefs = gql`
+const schema = buildSchema(`
   type User {
     _id: ID!
     username: String!
@@ -64,6 +65,6 @@ const typeDefs = gql`
     # Order Mutations
     updateOrderStatus(id: ID!, status: String!): Order!
   }
-`;
+`);
 
-module.exports = typeDefs;
+module.exports = schema;
